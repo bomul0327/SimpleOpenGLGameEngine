@@ -21,9 +21,15 @@
     <ClCompile Include="GameEngineCore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserScript.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineCore.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserScript.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

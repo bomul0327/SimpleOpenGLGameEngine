@@ -144,9 +144,11 @@
   <ItemGroup>
     <ClCompile Include="GameEngineCore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UserScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineCore.h" />
+    <ClInclude Include="UserScript.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

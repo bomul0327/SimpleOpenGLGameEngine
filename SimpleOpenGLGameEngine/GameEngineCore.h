@@ -1,13 +1,21 @@
 #pragma once
 
-#include <GL\GL.h>
 #include <GL\glut.h>
 #include <iostream>
 #include <vector>
 #include <math.h>
 #include <stdlib.h>
 
-//OpenGL CallBack Function
+void SetOpenGLCallback(int argc, char ** argv, int windowSizeX = 500, int windowSizeY = 500, char* title = "SimpleOpenGLGameEngine_Play");
+//OpenGL Callback Function
+void Init(void);
+void Reshape(int width, int height);
+void Display();
+void Idle();
+void MousePress(GLint button, GLint state, GLint mousePosX, GLint mousePosY);
+void MouseMotion(GLint mousePosX, GLint mousePosY);
+void MousePassiveMotion(GLint mousePosX, GLint mousePosY);
+void KeyboardPress(unsigned char key, GLint mousePosX, GLint mousePosY);
 
 //GameEngine Structs
 struct Vector3 {
@@ -86,8 +94,6 @@ public:
 	}
 };
 
-const Vector3 Vector3::zero(0, 0, 0);
-const Vector3 Vector3::one(1, 1, 1);
 struct Color {
 	int r;
 	int g;
@@ -123,16 +129,10 @@ struct Color {
 	}
 };
 
-const Color Color::red(255, 0, 0);
-const Color Color::green(0, 255, 0);
-const Color Color::blue(0, 0, 255);
-const Color Color::white(255, 255, 255);
-const Color Color::black(0, 0, 0);
-
 struct Transform {
 public:
 	Vector3 position;
-	Vector3 rotation; //Will change this as Quaternion if possible.
+	Vector3 rotation; //TODO: change rotation to use Quaternion (To solve Gimbal Lock problem)
 	Vector3 scale;
 public:
 	Transform() {
@@ -143,7 +143,10 @@ public:
 };
 
 //GameEngine Classes
-class Actor { //Basic Actor
+
+//Basic Object in the game
+//You need to inherit this class to implement your object
+class Actor {
 public:
 	Actor()
 	{
@@ -156,7 +159,8 @@ public:
 	Transform transform;
 };
 
-class Time { //Singleton Time class
+//Time class (Singleton)
+class Time { 
 public:
 	Time()
 	{
@@ -182,4 +186,8 @@ private:
 	static Time* instance;
 };
 
-Time* Time::instance = nullptr;
+//Input class (Singleton)
+//TODO: Implement keyboard Input and Mouse Input
+class Input {
+
+};
